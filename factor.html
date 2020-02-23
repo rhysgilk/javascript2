@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        p {
+            font-size: 16px;
+            border: 2px solid red;
+            padding: 10px;
+            font-family: serif;
+            color: purple;
+            box-sizing: border-box;
+            font-style: bold;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        Number 1<input type='text' id='number1' /><br />
+        Number 2<input type='text' id='number2' /><br />
+        <!--<input type='button' value='isFactor' onclick=
+        'isFactor(document.getElementById("number1").value, 
+                  document.getElementById("number2").value)' /><br />-->
+        <input type='button' value='Amicable' onclick=
+        'amicable(document.getElementById("number1").value, 
+                  document.getElementById("number2").value)' /><br />
+        <div id='Show'></div>
+        <div id='Amicable'></div>
+    </form>
+    <script type="text/javascript">
+        /*var things = ["Banana", "Orange", "Apple", "Mango"];
+        showFactor(things);
+        var things2 = [5, 4, 3, 2, 1];
+        showFactor(things2);
+        alert(addFactor(things2));
+        var things3 = 6;
+        var things4 = 24;
+        var things5 = 100;
+        alert(getFactors(things3));
+        alert(getFactors(things4));
+        alert(getFactors(things5));*/
+
+        function isFactor(num, test){
+            return (num % test == 0);
+        }
+        function showFactor(nums){
+            items = "";
+            for (i = 0; i < nums.length; i++)
+                items += nums[i] + " ";
+            div = document.getElementById('Show');
+            div.innerHTML = '<p>' + items + '<br></p>';
+        }
+        function addFactor(nums){
+            sum = 0;
+            for (i = 0; i < nums.length; i++)
+                sum += nums[i];
+            return sum;
+        }
+        function getFactors(num){
+            let factors = [];
+            for (i = 1; i <= num; i++){
+                if (isFactor(num, i))
+                    factors.push(i);
+            }
+            return factors;
+        }
+        function amicable(num1, num2){
+            if (addFactor(getFactors(num1)) == num2){
+                div = document.getElementById('Amicable');
+                div.innerHTML = '<p>' + "Amicable!" + '<br></p>';
+            } else {
+                div = document.getElementById('Amicable');
+                div.innerHTML = '<p>' + "Not amicable!" + '<br></p>';
+            }
+        }
+    </script>
+</body>
+</html>
